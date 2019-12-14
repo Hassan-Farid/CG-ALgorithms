@@ -1,6 +1,4 @@
-%Creating program to perform 3D Geometric Scaling on an object
-clc;
-clear;
+%Program to perform 3D Scaling Transformation
 
 %For actual object P
 fprintf('Enter number of vertices of given shape: ');
@@ -23,27 +21,24 @@ P(2,:)=y;
 P(3,:)=z;
 
 %Entering info regarding scaling vector
-fprintf('\nScaling factor along x-axis:');
+fprintf('\nScaling in x-axis:');
 sx = input('');
-fprintf('\nScaling factor along y-axis:');
+fprintf('\nScaling in y-axis:');
 sy = input('');
-fprintf('\nScaling factor along z-axis:');
+fprintf('\nScaling in z-axis:');
 sz = input('');
 
-%Creating scaling matrix S
-S = [sx 0 0 0; 0 sy 0 0; 0 0 sz 0; 0 0 0 1];
-
+%Creating scaling matrix
+T = [sx 0 0 0; 0 sy 0 0; 0 0 sz 0; 0 0 0 1];
+ 
 %Creating the transformed object R
-R = S*P;
+R = T*P;
 
-%Plotting objects P and R on the screen
-fill3(P(1,:),P(2,:),P(3,:), 'r');
+%Plotting actual object 'P'
+fill3(P(1,:),P(2,:), P(3,:), [1,0,0]);
+
 hold on;
-fill3(R(1,:),R(2,:),R(3,:), 'g');
-
-%Creating x,y and z values on axes lines
-xlim([-20,20]);
-ylim([-20,20]);
-zlim([-20,20]);
+%Plotting transformed object 'R'
+fill3(R(1,:),R(2,:),R(3,:), [0 1 0]);
 
 %End of program
