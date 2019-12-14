@@ -1,6 +1,4 @@
 %Creating program to perform 3D Geometric Translation on an object
-clc;
-clear;
 
 %For actual object P
 fprintf('Enter number of vertices of given shape: ');
@@ -30,20 +28,15 @@ b = input('');
 fprintf('\nTranslation in z-axis:');
 c = input('');
 
-%Creating translation matrice T
+%Creating translation matrice
 T = [1 0 0 a; 0 1 0 b; 0 0 1 c; 0 0 0 1];
 
 %Creating the transformed object R
 R = T*P;
 
-%Plotting objects P and R on the screen
-fill3(P(1,:),P(2,:),P(3,:),'r');
-hold on;
-fill3(R(1,:),R(2,:),R(3,:),'g');
+fill3(P(1,:),P(2,:), P(3,:), [1,0,0]);
 
-%Creating x,y and z values on axes lines
-xlim([-20,20]);
-ylim([-20,20]);
-zlim([-20,20]);
+hold on;
+fill3(R(1,:),R(2,:),R(3,:), [0 1 0]);
 
 %End of program
